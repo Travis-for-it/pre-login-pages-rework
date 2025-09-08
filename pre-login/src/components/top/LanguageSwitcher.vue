@@ -11,6 +11,7 @@
         :aria-expanded="showDropdown"
         aria-haspopup="true"
         :aria-controls="'locale-dropdown'"
+        data-testid="language-switcher-button"
       >
         {{ currentLocale.language.toUpperCase() }}
         <svg

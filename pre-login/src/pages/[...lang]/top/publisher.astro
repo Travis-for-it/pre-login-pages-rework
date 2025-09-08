@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { loadTranslation } from '../../../utils/loadTranslation';
+import Layout from '../../../layouts/Layout.astro';
+// import PublisherTopFirstView from '../../../components/top/publisherTop/PublisherTopFirstView.astro';
+// import TypesOfPublishers from '../../../components/top/publisherTop/TypesOfPublishers.vue';
+// import FAQ from '../../../components/top/publisherTop/FAQ.astro';
+import { paramsForLangPaths } from '../../../utils/paramsForLangPaths';
+import Marquee from '../../../components/top/publisherTop/Marquee.astro';
+
+export const getStaticPaths = (() => {
+    return paramsForLangPaths()
+}) satisfies GetStaticPaths;
+const { lang } = Astro.params;
+const t = await loadTranslation(lang ?? 'en_us');
+const disabledLocales = ['ja_jp']
+---
+<Layout t={t} disabledLocales={disabledLocales}>
+    <div class="py-20 max-w-screen">
+        <!-- <PublisherTopFirstView t={t} /> -->
+        <Marquee />
+        <!-- <TypesOfPublishers t={t} client:visible />
+        <FAQ t={t} /> -->
+    </div>
+</Layout>

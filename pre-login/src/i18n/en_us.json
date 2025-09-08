@@ -1,0 +1,31 @@
+{
+    "header": {
+        "advertiser": "Advertiser",
+        "publisher": "Publisher"
+    },
+    "publisher_top": {
+        "first_view": {
+            "heading": "More Than Just a Platform - \nWe're Your Partner in Growth",
+            "sub_heading": "Connect with leading brands, expand your reach, and generate sustainable income,\n with expert support at every stage."
+        },
+        "types_of_publishers": {
+            "heading": "Promotions for All Types of Publishers",
+            "sub_heading": "We cater to different types of publishers with specialised support and offers for each category.",
+            "perfect_for": "Perfect for",
+            "affiliate": {
+                "name": "Affiliate",
+                "perfect_for_one": "Review sites, blogs and niche communities"
+            },
+            "influencer": {
+                "name": "Influencer",
+                "perfect_for_one": "Content creators with 1000+ followers"
+            }
+        },
+        "faq": {
+            "signup": {
+                "question": "How do I sign up as a publisher on Webridge?",
+                "content": "Signing up is easy and free! Just click the Sign Up button, fill out a short form with your details, and connect your website, app, or social channels. Once approved, you can start browsing and promoting campaigns right away."
+            }
+        }
+    }
+}

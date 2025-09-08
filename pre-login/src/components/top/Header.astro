@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+
+import WebridgeLogo from '../../assets/images/logo_webridge_afb.svg'
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import LanguageSwitcher from "./LanguageSwitcher.vue";
+import { availableLocales, type LocaleKey } from "../../utils/availableLocales";
+
+type HeaderTranslations = {
+  header: {
+    advertiser: string;
+    publisher: string;
+  }
+}
+
+interface Props {
+  t: HeaderTranslations
+  disabledLocales?: string[]
+}
+
+const {t, disabledLocales} = Astro.props
+const { params } = Astro;
+
+const langPath = (params.lang ?? 'en_us') as LocaleKey
+
+const updatedLocales = {} as typeof availableLocales;
+
+for (const key in availableLocales) {
+    const typedKey = key as LocaleKey;
+    updatedLocales[typedKey] = {
+        ...availableLocales[typedKey],
+        disabled: disabledLocales?.includes(key) ?? false,
+    };
+}
+---
+<div class="w-full flex justify-between sticky top-0 z-10 bg-white border-b items-center">
+  <div>
+    <a href={getRelativeLocaleUrl(langPath, "", {normalizeLocale: false})}>
+      <Image src={WebridgeLogo} alt={"webridge"} width={200} />
+    </a>
+  </div>
+  <a href="#">{t.header.advertiser}</a>
+  <a href="#">{t.header.publisher}</a>
+  <LanguageSwitcher availableLocales={updatedLocales} currentLocale={langPath} client:load />
+</div>

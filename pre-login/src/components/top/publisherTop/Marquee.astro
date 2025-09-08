@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import logoIherb from '../../../assets/images/brands/logo_iherb.png';
+import logoLazada from '../../../assets/images/brands/logo_lazada.png';
+import logoPayoneer from '../../../assets/images/brands/logo_payoneer.png';
+import logoRakutenStay from '../../../assets/images/brands/logo_rakuten_stay.png';
+import logoSkylum from '../../../assets/images/brands/logo_skylum.png';
+import logoSonyMusic from '../../../assets/images/brands/logo_sony_music.png';
+import logoSorare from '../../../assets/images/brands/logo_sorare.png';
+import logoSsense from '../../../assets/images/brands/logo_ssense.png';
+import logoSwarvoski from '../../../assets/images/brands/logo_swarvoski@2x5.png';
+import logoThaiHand from '../../../assets/images/brands/logo_thai_hand.png';
+
+const logos = [
+  { src: logoIherb, alt: 'iherb' },
+  { src: logoLazada, alt: 'lazada' },
+  { src: logoPayoneer, alt: 'payoneer' },
+  { src: logoRakutenStay, alt: 'rakuten_stay' },
+  { src: logoSkylum, alt: 'skylum' },
+  { src: logoSonyMusic, alt: 'sony_music' },
+  { src: logoSorare, alt: 'sorare' },
+  { src: logoSsense, alt: 'ssense' },
+  { src: logoSwarvoski, alt: 'swarvoski' },
+  { src: logoThaiHand, alt: 'thai_hand' },
+];
+
+---
+<div class="swiper">
+    <div class="swiper-wrapper">
+        {logos.map((logo) => (
+            <div class="swiper-slide"><Image src={logo.src} alt={logo.alt}/></div>
+        ))}
+    </div>
+</div>
+
+<style>
+    .swiper-wrapper {
+        transition-timing-function: linear;
+        align-items: center;
+    }
+</style>
+
+<script>
+import Swiper from 'swiper';
+  import { Autoplay } from 'swiper/modules';
+  import 'swiper/css/bundle';
+
+  export const swiperConfig = {
+    modules: [Autoplay],
+    loop: true,
+    freeMode: true,
+    speed: 2000,
+    autoplay: {
+      delay: 1,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 3,
+    spaceBetween: 10, 
+    breakpoints: {
+        640: {
+          slidesPerView: 7,
+          spaceBetween: 20,
+        },
+      },
+  };
+
+  const swiper = new Swiper('.swiper', swiperConfig);
+</script>

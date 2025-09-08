@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import DashboardHeaderMoney from '../../../assets/images/dashboard-header-money.svg'
+import DashboardHeaderMobile from '../../../assets/images/dashboard-header-mobile.svg'
+import DashboardMobileMoney from '../../../assets/images/dashboard-mobile-money.svg'
+
+type PublisherFirstViewTranslations = {
+    publisher_top: {
+        first_view: {
+            pre_heading: string;
+            heading_before_green_word: string;
+            green_word: string;
+            heading_after_green_word: string;
+            sub_heading: string
+        }
+    }
+}
+
+interface Props {
+    t: PublisherFirstViewTranslations
+}
+
+const {t} = Astro.props
+
+---
+<div class="mx-2 sm:mx-24 sm:text-center mt-[3.125rem] sm:mt-[5.625rem]">
+    <div class="border border-[#69AC5480] rounded-full px-4 py-2 inline-block text-center">
+        <span>{t.publisher_top.first_view.pre_heading}</span>
+    </div>
+    <div class="whitespace-pre-line mt-[0.938rem]">
+        <h1 class=`text-[2rem] sm:text-[3.348rem] leading-[120%] font-bold`>
+            { t.publisher_top.first_view.heading_before_green_word }
+            <span class="text-[#28832F]">{t.publisher_top.first_view.green_word}</span>
+            {t.publisher_top.first_view.heading_after_green_word}
+        </h1>
+        <h2 class="sm:text-lg mt-[0.938rem]">{ t.publisher_top.first_view.sub_heading }</h2>
+    </div>
+    <div class="w-full mt-16 sm:mt-20 relative">
+        <Image
+            src={DashboardHeaderMoney}
+            alt={"a graph with money and a smartphone"}
+            class="mx-auto hidden sm:block align-top"
+            loading={"eager"}
+        />
+        <Image
+            src={DashboardHeaderMobile}
+            alt={"a smartphone"}
+            loading={"eager"}
+            class="mx-auto block sm:hidden"
+        />
+        <Image 
+            src={DashboardMobileMoney}
+            alt={"a smartphone"}
+            loading={"eager"}
+            class="absolute left-0 bottom-0 sm:hidden translate-y-8 -translate-x-4"
+        />
+    </div>
+</div>

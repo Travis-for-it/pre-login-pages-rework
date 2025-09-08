@@ -1,12 +1,27 @@
 {
     "header": {
         "advertiser": "Advertiser",
-        "publisher": "Publisher"
+        "publisher": "Publisher",
+        "company_overview": "Company Overview",
+        "contact": "Contact"
     },
     "publisher_top": {
         "first_view": {
-            "heading": "More Than Just a Platform - \nWe're Your Partner in Growth",
+            "pre_heading": "Join 1.2 million+ publishers already registered across Webridge & afb platforms.",
+            "heading_before_green_word": "More Than Just a Platform - \nWe're Your Partner in",
+            "green_word": "Growth",
+            "heading_after_green_word": "",
             "sub_heading": "Connect with leading brands, expand your reach, and generate sustainable income,\n with expert support at every stage."
+        },
+        "results": {
+            "heading": "Powerful Network, Proven Results",
+            "registered_publishers_number": "1.2M+",
+            "registered_publishers": "Registered publishers",
+            "successful_promotions_number": "18,000+",
+            "successful_promotions": "Successful promotions",
+            "total_payments_to_publishers_number": "$750M+",
+            "total_payments_to_publishers": "Total payments to publishers",
+            "fine_print": "*The figures above include results from the entire affiliate advertising platform, comprising both \"Webridge\" and \"afb\"."
         },
         "types_of_publishers": {
             "heading": "Promotions for All Types of Publishers",

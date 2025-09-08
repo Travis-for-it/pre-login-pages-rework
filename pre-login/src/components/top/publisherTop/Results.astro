@@ -1,0 +1,43 @@
+---
+import ResultsInfo from './ResultsInfo.astro';
+
+type ResultsTranslations = {
+    publisher_top: {
+        results: {
+            heading: string;
+            registered_publishers_number: string;
+            registered_publishers: string;
+            successful_promotions_number: string;
+            successful_promotions: string;
+            total_payments_to_publishers_number: string;
+            total_payments_to_publishers: string;
+            fine_print: string;
+        }
+    }
+}
+
+interface Props {
+    t: ResultsTranslations
+}
+
+const {t} = Astro.props
+---
+<div>
+    <div class="text-center mx-2 sm:mx-16 mt-20 sm:mt-[5.625rem]">
+        <h2 class="text-3xl">{t.publisher_top.results.heading}</h2>
+        <div class="flex flex-col sm:flex-row justify-between mt-[1.875rem]">
+            <ResultsInfo
+                number={t.publisher_top.results.registered_publishers_number}
+                text={t.publisher_top.results.registered_publishers}
+            />
+            <ResultsInfo
+                number={t.publisher_top.results.successful_promotions_number}
+                text={t.publisher_top.results.successful_promotions}
+            />
+            <ResultsInfo
+                number={t.publisher_top.results.total_payments_to_publishers_number}
+                text={t.publisher_top.results.total_payments_to_publishers_number}
+            />
+        </div>
+    </div>
+</div>

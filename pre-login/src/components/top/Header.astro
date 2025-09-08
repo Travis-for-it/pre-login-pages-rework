@@ -5,13 +5,7 @@ import WebridgeLogo from '../../assets/images/logo_webridge_afb.svg'
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import LanguageSwitcher from "./LanguageSwitcher.vue";
 import { availableLocales, type LocaleKey } from "../../utils/availableLocales";
-
-type HeaderTranslations = {
-  header: {
-    advertiser: string;
-    publisher: string;
-  }
-}
+import type { HeaderTranslations } from "../../layouts/Layout.astro";
 
 interface Props {
   t: HeaderTranslations
@@ -33,13 +27,19 @@ for (const key in availableLocales) {
     };
 }
 ---
-<div class="w-full flex justify-between sticky top-0 z-10 bg-white border-b items-center">
+<div class="w-full flex justify-around sticky top-0 z-10 bg-white border-b">
   <div>
     <a href={getRelativeLocaleUrl(langPath, "", {normalizeLocale: false})}>
       <Image src={WebridgeLogo} alt={"webridge"} width={200} />
     </a>
   </div>
-  <a href="#">{t.header.advertiser}</a>
-  <a href="#">{t.header.publisher}</a>
-  <LanguageSwitcher availableLocales={updatedLocales} currentLocale={langPath} client:load />
+  <div class="flex gap-4 items-center">
+      <div class="hidden sm:block">
+        <a href="#">{t.header.advertiser}</a>
+        <a href="#">{t.header.publisher}</a>
+        <a href="#">{t.header.company_overview}</a>
+        <a href="#">{t.header.contact}</a>
+      </div>
+      <LanguageSwitcher availableLocales={updatedLocales} currentLocale={langPath} client:load />
+  </div>
 </div>

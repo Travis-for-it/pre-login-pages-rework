@@ -6,6 +6,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import LanguageSwitcher from "./LanguageSwitcher.vue";
 import { availableLocales, type LocaleKey } from "../../utils/availableLocales";
 import type { HeaderTranslations } from "../../layouts/Layout.astro";
+import SlideOverMenu from "../SlideOverMenu.astro";
 
 interface Props {
   t: HeaderTranslations
@@ -28,6 +29,7 @@ for (const key in availableLocales) {
 }
 ---
 <div class="w-full flex justify-around sticky top-0 z-10 bg-white border-b">
+  <SlideOverMenu />
   <div>
     <a href={getRelativeLocaleUrl(langPath, "", {normalizeLocale: false})}>
       <Image src={WebridgeLogo} alt={"webridge"} width={200} />

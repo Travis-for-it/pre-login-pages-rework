@@ -1,0 +1,72 @@
+---
+
+---
+<div class="sm:hidden h-full my-auto">
+    <button class="nav__toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+</div>
+
+<style>
+.nav__toggle {
+  width: 22px;
+  height: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  z-index: 100;
+  transform: translateX(0);
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.nav__toggle > span {
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000; 
+  transition: all 0.3s ease-in-out;
+}
+
+.nav__toggle > span:nth-of-type(1) {
+  top: 0;
+}
+
+.nav__toggle > span:nth-of-type(2) {
+  top: 45%;
+}
+
+.nav__toggle > span:nth-of-type(3) {
+  bottom: 0;
+}
+
+.nav__toggle.is-open > span:nth-of-type(1) {
+  transform: translateY(9px) rotate(-45deg);
+}
+
+.nav__toggle.is-open > span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.nav__toggle.is-open > span:nth-of-type(3) {
+  transform: translateY(-9px) rotate(45deg);
+}
+
+@media screen and (min-width: 768px) {
+  .nav__toggle {
+    margin-left: 0;
+  }
+}
+</style>
+
+<script>
+    const navToggle = document.querySelector('.nav__toggle')
+    navToggle?.addEventListener('click', () => {
+        navToggle.classList.toggle('is-open')
+    })
+</script>

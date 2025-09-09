@@ -1,8 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import DashboardHeaderMoney from '../../../assets/images/dashboard-header-money.svg'
-import DashboardHeaderMobile from '../../../assets/images/dashboard-header-mobile.svg'
-import DashboardMobileMoney from '../../../assets/images/dashboard-mobile-money.svg'
+import DashboardMobileHeader from '../../../assets/images/dashboard-mobile-header.svg'
 
 type PublisherFirstViewTranslations = {
     publisher_top: {
@@ -35,7 +34,7 @@ const {t} = Astro.props
         </h1>
         <h2 class="sm:text-lg mt-[0.938rem]">{ t.publisher_top.first_view.sub_heading }</h2>
     </div>
-    <div class="w-full mt-16 sm:mt-20 relative">
+    <div class="w-full mt-16 sm:mt-20">
         <Image
             src={DashboardHeaderMoney}
             alt={"a graph with money and a smartphone"}
@@ -43,16 +42,10 @@ const {t} = Astro.props
             loading={"eager"}
         />
         <Image
-            src={DashboardHeaderMobile}
+            src={DashboardMobileHeader}
             alt={"a smartphone"}
             loading={"eager"}
             class="mx-auto block sm:hidden"
-        />
-        <Image 
-            src={DashboardMobileMoney}
-            alt={"a smartphone"}
-            loading={"eager"}
-            class="absolute left-0 bottom-0 sm:hidden translate-y-8 -translate-x-4"
         />
     </div>
 </div>
